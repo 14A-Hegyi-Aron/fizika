@@ -1,5 +1,148 @@
-This is a LaTex Tutorial
-{\bfseries \LaTeX\ is a document preparation system}
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\graphicspath{ {./images/} }
+\newcommand*{\contfrac}[2]{%
+{
+  \rlap{$\dfrac{1}{\phantom{#1}}$}%
+  \genfrac{}{}{0pt}{0}{}{#1+#2}%
+}}
 
-\draw[] (A) arc(θ1:θ2:r) (B);
+\title{The Ultimate \LaTeX\ Guide}
+\date{\today}
+\author{Áron F. Hegyi,
+\and GitHub Copilot}
+\begin{document}
+\maketitle
+\section{Introduction}
 
+\subsection{Basic Commands}
+\begin{itemize}
+    \item \textbf{Bold} \textit{Italic} \underline{Underline}
+\end{itemize}
+
+\subsection{Math}
+\begin{itemize}
+    \item \(\frac{1}{2}\) \(\sqrt{2}\) \(x^2\) \(x_{i}\)
+    \item \(x_{i} = \frac{1}{2}\)
+\end{itemize}
+
+\subsection{Tables}
+\begin{table}[ht]
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3} \\
+        \hline
+        1                 & 2                 & 3                 \\
+        \hline
+        4                 & 5                 & 6                 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+% \newpage
+
+\subsection{Figures}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.25\textwidth]{test.png}
+    \caption{This is a scary figure. I advise running.}
+\end{figure}
+
+\section{Mathematics}
+
+\subsection{Subscripts and Superscripts}
+\begin{itemize}
+    \item Create a subscript with the \_ character: \(x_{i}\)
+    \item Create a superscript with the \textsuperscript{$\wedge$} character: \(x^{2}\)
+    \item You can also combine them: \(x_{i}^{2}\)
+\end{itemize}
+
+\subsection{Brackets and Parentheses}
+\begin{itemize}
+    \item Round brackets: (function arguments) \[\left( \frac{1}{2} \right)\]
+    \item Square brackets: (vectors) \[\left[ \frac{1}{2} \right]\]
+    \item Curly brackets: (sets) \[\left\{ \frac{1}{2} \right\}\]
+    \item Absolute value: (absolute values) \[\left| \frac{1}{2} \right|\]
+    \item Floor: (floor function, i.e. rounding down) \[\left\lfloor \frac{1}{2} \right\rfloor\]
+    \item Ceiling (ceiling function, i.e. rounding up) \[\left\lceil \frac{1}{2} \right\rceil\]
+    \item Angle brackets: (inner product) \[\left\langle \frac{1}{2} \right\rangle\]
+    \item Double angle brackets: (outer product) \[\left\langle \left\langle \frac{1}{2} \right\rangle \right\rangle\]
+\end{itemize}
+
+\subsection{Matrices}
+\begin{itemize}
+    \item Plain: a matrix with no brackets \[\begin{matrix} 1 & 2 \\ 3 & 4 \end{matrix}\]
+    \item Parentheses: a matrix with round brackets \[\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\]
+    \item Square brackets: a matrix with square brackets \[\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}\]
+    \item Curly brackets: a matrix with curly brackets \[\begin{Bmatrix} 1 & 2 \\ 3 & 4 \end{Bmatrix}\]
+    \item Absolute value: a matrix with absolute value brackets \[\begin{vmatrix} 1 & 2 \\ 3 & 4 \end{vmatrix}\]
+    \item Double absolute value: a matrix with double absolute value brackets \[\begin{Vmatrix} 1 & 2 \\ 3 & 4 \end{Vmatrix}\]
+\end{itemize}
+
+
+\subsection{Fractions and Binomials}
+\begin{itemize}
+    \item Binomials: \[\binom{n}{k}\]
+    \item Fractions with numbers: \[\frac{1}{2}\]
+    \item Fractions with text: \[\frac{numerator}{denominator}\]
+    \item Function arguments: \[f(x)=\frac{f(x+h)-f(x)}{h}\]
+    \item Nested fractions: \[\frac{1}{1+\frac{1}{x}}\]
+    \item Fractions with subscripts: \[\frac{x_{i}}{x_{i+1}}\]
+    \item Overflow example: \[
+              a_0 +
+              \contfrac{a_1}{
+                  \contfrac{a_2}{
+                      \contfrac{a_3}{
+                          \genfrac{}{}{0pt}{0}{}{\ddots}
+                      }}}
+          \]
+\end{itemize}
+
+\subsection{Aligning Equations}
+\begin{itemize}
+    \item Aligning equations with the \texttt{align} environment: \begin{align}
+              a & = b \\
+              c & = d
+          \end{align}
+    \item Use the asterisk to align equations without numbers: \begin{align*}
+              a & = b \\
+              c & = d
+          \end{align*}
+    \item Two columns: \begin{align*}
+              a & = b & c & = d \\
+              e & = f & g & = h
+          \end{align*}
+    \item Lopsided: \begin{align*}
+              \frac{1}{2} & = a \\
+                          & = c
+          \end{align*}
+    \item Displaying large equations: \begin{multline*}
+              p(x) = 3x^6 + 14x^5y + 590x^4y^2 + 19x^3y^3 \\
+              + 14x^2y^4 + 3xy^5 + y^6 + 3x^5 + 14x^4y + 19x^3y^2
+          \end{multline*}
+    \item Grouping equations: \begin{gather*}
+              a = b \\
+              c = a + b
+          \end{gather*}
+\end{itemize}
+
+\subsection{Operators}
+\begin{itemize}
+    \item Summation: to calculate the sum of a series
+          \[\sum_{i=1}^{n} x_{i}\] the sum of \(x_{i}\) from \(i=1\) to \(i=n\)
+    \item Product: to calculate the product of a series
+          \[\prod_{i=1}^{n} x_{i}\] the product of \(x_{i}\) from \(i=1\) to \(i=n\)
+    \item Union: \[\bigcup_{i=1}^{n} x_{i}\]
+    \item Intersection: \[\bigcap_{i=1}^{n} x_{i}\]
+    \item Integral: \[\int_{a}^{b} x\]
+    \item Double integral: \[\iint_{a}^{b} x\]
+    \item Triple integral: \[\iiint_{a}^{b} x\]
+    \item Contour integral: \[\oint_{a}^{b} x\]
+    \item Limit: \[\lim_{x \to 0} x\]
+    \item Logarithm: \[\log_{2} x\]
+    \item Derivative: \[\frac{d}{dx} x\]
+    \item Partial derivative: \[\frac{\partial}{\partial x} x\]
+\end{itemize}
+
+\end{document}
