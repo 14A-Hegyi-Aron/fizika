@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\graphicspath{ {./images/} }
+
+\title{Lesson 1}
+\date{\today}
+\author{Áron F. Hegyi,
+\and GitHub Copilot}
+\begin{document}
+\maketitle
+
+\section{Konjuktív és diszjunktív logikai kapcsolatok}
+
+\subsection{Egyszerűbb írásmód: De Morgan's Laws}
+
+\begin{table}[ht]
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{\(m_i^n\)}                      & \textbf{i} & \textbf{j} & \textbf{\(\overline{M_j^n}\)}                             \\
+        \hline
+        A * B * C                               & 7          & 0          & \(\overline{\overline{A} + \overline{B} + \overline{C}}\) \\
+        \hline
+        \(\overline{A}\) * B * \(\overline{C}\) & 2          & 5          & \(\overline{A + \overline{B} + C}\)                       \\
+        \hline
+        A * \(\overline{B}\) * C                & 5          & 2          & \(\overline{\overline{A} + B + \overline{C}}\)            \\
+        \hline
+    \end{tabular}
+\end{table}
+
+This is the sum of all the minterms of \(F^4\).
+\begin{equation*}
+    F^4 = \sum^{4} (0, 2, 3, 4, 5, 11, 15)
+\end{equation*}
+
+\(F^4\) = ABCD 7 times
+\begin{multline*}
+    F^4 = (\overline{A} + \overline{B} + \overline{C} + \overline{D}) \cdot (\overline{A} + \overline{B} + C + \overline{D}) \cdot (\overline{A} + \overline{B} + C + D) \cdot (\overline{A} + B + \overline{C} + \overline{D}) \\ \cdot (\overline{A} + B + \overline{C} + D) \cdot (\overline{A} + B + C + \overline{D}) \cdot (A + B + C + D)
+\end{multline*}
+
+\newpage
+ABCD igazságtábla
+\begin{table}[ht]
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{0} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{F} \\
+        \hline
+        1          & 0          & 0          & 0          & 0          & 0          \\
+        \hline
+        2          & 0          & 0          & 0          & 1          & 1          \\
+        \hline
+        3          & 0          & 0          & 1          & 0          & 1          \\
+        \hline
+        4          & 0          & 0          & 1          & 1          & 1          \\
+        \hline
+        5          & 0          & 1          & 0          & 0          & 1          \\
+        \hline
+        6          & 0          & 1          & 0          & 1          & 0          \\
+        \hline
+        7          & 0          & 1          & 1          & 0          & 0          \\
+        \hline
+        8          & 0          & 1          & 1          & 1          & 0          \\
+        \hline
+        9          & 1          & 0          & 0          & 0          & 0          \\
+        \hline
+        10         & 1          & 0          & 0          & 1          & 0          \\
+        \hline
+        11         & 1          & 0          & 1          & 0          & 1          \\
+        \hline
+        12         & 1          & 0          & 1          & 1          & 0          \\
+        \hline
+        13         & 1          & 1          & 0          & 0          & 0          \\
+        \hline
+        14         & 1          & 1          & 0          & 1          & 0          \\
+        \hline
+        15         & 1          & 1          & 1          & 0          & 1          \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section{Egyszerűsítés}
+Logikai függvények egszerűsítése! Logikai algebra.
+Szabályai és alkalmazásuk:
+
+\subsection{Kommutatív szabály}
+\begin{align*}
+    A + B = B + A \\
+    A \cdot B = B \cdot A
+\end{align*}
+
+\subsection{Disztributív szabály}
+\begin{align*}
+    A \cdot (B + C) = A \cdot B + A \cdot C \\
+    A + (B \cdot C) = (A + B) \cdot (A + C)
+\end{align*}
+
+\subsection{A logikai algebra alapszabályai}
+\[\begin{array}{lll}
+        A \cdot \oslash = \oslash & A \cdot A = A & \oslash \cdot \oslash = \oslash \\
+        A + \oslash = A & A + A = A & \oslash + \oslash = \oslash \\
+        A \cdot 1 = A & A + 1 = 1 & 1 \cdot 1 = 1 \\
+        A + 1 = 1 & A \cdot 1 = A & 1 + 1 = 1 \\
+\end{array}\]
+
+\subsection{De Morgan szabály}
+\begin{align*}
+    \overline{A \cdot B} = \overline{A} + \overline{B} \\
+    \overline{A + B} = \overline{A} \cdot \overline{B}
+\end{align*}
+Igazságtábla:
+\begin{table}[ht]
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{A} & \textbf{B} & \textbf{\(\overline{A \cdot B}\)} & \textbf{\(\overline{A} + \overline{B}\)} \\
+        \hline
+        0          & 0          & 1                             & 1                             \\
+        \hline
+        0          & 1          & 1                             & 1                             \\
+        \hline
+        1          & 0          & 1                             & 1                             \\
+        \hline
+        1          & 1          & 0                             & 0                             \\
+        \hline
+    \end{tabular}
+\end{table}
+\newline
+De Morgan szabály megfordítja a logikai műveleteket a negációval.
+
+\end{document}
