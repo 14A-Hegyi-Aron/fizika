@@ -127,4 +127,79 @@ Igazságtábla:
 \newline
 De Morgan szabály megfordítja a logikai műveleteket a negációval.
 
+\subsection{XOR és XNOR}
+\begin{align*}
+    A \oplus B &= \overline{A} \cdot B + A \cdot \overline{B} \\
+    A \odot B &= \overline{A} \cdot \overline{B} + A \cdot B
+\end{align*}
+
+\subsection{Gyakorlás}
+\begin{align*}
+    A \oplus B &= \overline{A \odot B} \\
+    \overline{A} \cdot B + A \cdot \overline{B} &= \overline{A} \cdot \overline{B} + A \cdot B \\
+    \overline{A} \cdot B + A \cdot \overline{B} &=
+    (A + B) \cdot (\overline{A} + \overline{B}) \\
+    \overline{A} \cdot B + A \cdot \overline{B} &=
+    A \cdot \overline{A} + A \cdot \overline{B} + \overline{B} \cdot \overline{A} + B \cdot \overline{B} \\
+    \overline{A} \cdot B + A \cdot \overline{B} &=
+    A \cdot \overline{B} + B \cdot \overline{A} \\
+\end{align*}
+
+\subsection{Logikai függvények egyszerűsítése grafikus módszerrel}
+A
+\begin{table}[ht]
+    \begin{tabular}{c|c|}
+        0          & \(\overline{A}\) \\
+        \hline
+        1          & \(A\)            \\
+    \end{tabular}
+\end{table}
+\newpage
+A B
+\begin{table}[ht]
+    \begin{tabular}{c|c|c|}
+        & 0          & 1          \\
+        \hline
+        0          & \(\overline{A} \cdot \overline{B}\) & \(\overline{A} \cdot B\) \\
+        \hline
+        1          & \(A \cdot \overline{B}\)            & \(A \cdot B\)            \\
+    \end{tabular}
+\end{table}
+\newline
+A BC
+\begin{table}[ht]
+    \begin{tabular}{c|c|c|c|c|}
+        & 00         & 01         & 11         & 10         \\
+        \hline
+        0          & 0          & 1          & 3         & 2          \\
+        \hline
+        1          & 4          & 5          & 7         & 6          \\
+    \end{tabular}
+\end{table}
+\newline
+AB CD
+\begin{table}[ht]
+    \begin{tabular}{c|c|c|c|c|}
+        & 00         & 01         & 11         & 10         \\
+        \hline
+        00         & 0          & 1          & 3         & 2          \\
+        \hline
+        01         & 4          & 5          & 7         & 6          \\
+        \hline
+        11         & 12         & 13         & 15        & 14         \\
+        \hline
+        10         & 8          & 9          & 11        & 10         \\
+    \end{tabular}
+\end{table}
+\begin{align*}
+    F^3 &= A \cdot B \cdot C + \overline{A} \cdot B \cdot C + A \cdot \overline{B} \cdot C + A \cdot B \cdot \overline{C} + \overline{A} \cdot \overline{B} \cdot C \\
+\end{align*}
+\begin{align*}
+    \overline{A} \cdot \overline{B} \cdot \overline{C} + \overline{A} \cdot B \cdot C + A \cdot \overline{B} \cdot \overline{C} + A \cdot B \cdot \overline{C} + A \cdot B \cdot C \\
+    \overline{A} \cdot \overline{B} \cdot \overline{C} + A \cdot \overline{C} + B \cdot C \\
+    \overline{C} (\overline{A} \cdot A) + B \cdot C &=
+    \overline{C} \cdot (\overline{B} + A) + B \cdot C \\
+\end{align*}
+
+
 \end{document}
