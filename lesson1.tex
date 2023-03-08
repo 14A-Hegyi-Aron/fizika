@@ -297,4 +297,42 @@ A B C D
     \overline{B} \cdot \overline{C} + \overline{C} \cdot D + C \cdot \overline{D} + A \cdot D \cdot B \\
 \end{align*}
 
+\subsection{Feladat}
+
+\begin{equation*}
+    F^3 = \sum^{3} (1, 3, 4, 6)
+\end{equation*}
+
+ABC 3 times: 0001, 0011, 0100, 0110
+
+\begin{align*}
+    F^3 & = \overline{A} \cdot \overline{B} \cdot C + \overline{A} \cdot B \cdot C + A \cdot \overline{B} \cdot C + A \cdot B \cdot C \\
+\end{align*}
+
+Karnaugh tábla
+A BC
+
+\begin{table}[ht]
+    \begin{tabular}{c|c|c|c|c}
+          & 00 & 01 & 11 & 10 \\
+        \hline
+        0 & 0  & 1  & 1  & 0  \\
+        \hline
+        1 & 1  & 0  & 0  & 1  \\
+    \end{tabular}
+\end{table}
+
+\begin{align*}
+    F^3 & = A \cdot \overline{C} + \overline{A} \cdot C \\
+\end{align*}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{1-es feladat ábra.png}
+    \caption{feladat ábra}
+    \label{fig:feladat ábra}
+\end{figure}
+
+https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgpABZsKBTAWjDACgB3EbPGkFFHzop+gqJ1F9s2QuEJVpsyGzCVJ3NN14aqVEUgQq1Avia2mxe6odUjh-DPuIjMIqwYn2zXhEok8pTXtsTWUuYKCQ-jw8cS4zNFiweX58cQBJOT0aPTFBXShoD0zkhUgLKXKoQo8AGSzU2OJZROqIADMAQwAbAGcGamV60v4ckGbRgqouvoGkIYbcPgml6ume-sG2YZTFcdk9qg6NufEAWQpnBxFCX2vqlCK2IA
+
 \end{document}
